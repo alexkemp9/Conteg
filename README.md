@@ -24,3 +24,15 @@ The WWW is a network of networks. The premise, broadly, is that electronic serve
 ***HTTP/1.0*** was a formal specification within [RFC-1945 (pdf)](https://github.com/alexkemp9/Conteg/blob/main/RFC/rfc-1945_HTTP-1.0.pdf). From our perspective, the important aspect of http/1.0 over http/0.9 is the introduction of Web-Headers (header fields, also known as *“headers”*) & Web-Bodies (an entity body) (see *“4.HTTP Message”* on p20 of the pdf).
 
 The introduction of *“headers”* & *“bodies”* allows the introduction of content negotiation, even though at this early beginning it is most basic. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy-servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed. My own testing showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one fifth). On admin-edit pages (masses of duplicated <select> drop-down boxes) reductions exceed 90%. So, most effective.
+
+
+
+| Name                   | PDF Page                               | Info                 |
+|:---------------------------------|:------------------------------------|:---------------------------------|
+URI | 3.2 Uniform Resource Identifiers; p13 | 
+URL | 3.2.2 http URL; p14 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
+Compression | 3.5 Content Codings; p17 | ***Content Negotiation***: content-coding = "gzip" \| "compress"
+Methods | 5.1.1 Method; p23 | Method = "GET" \| "HEAD" \| "POST"
+Headers | 5.2 Request Header Fields; p24 | ***Content Negotiation***: Request-Header = Authorization \| From \| If-Modified-Since \| Referer \| User-Agent
+Status | 6.1 Status-Line | eg first line is *“HTTP/1.0 200 ”*; This allows the client to differentiate a http/0 response from a http/1 response.
+Status Codes | 6.1.1 Status Code and Reason Phrase; p26 | 1st 15 codes were introduced

@@ -23,9 +23,4 @@ The WWW is a network of networks. The premise, broadly, is that electronic serve
 
 ***HTTP/1.0*** was a formal specification within [RFC-1945 (pdf)](https://github.com/alexkemp9/Conteg/blob/main/RFC/rfc-1945_HTTP-1.0.pdf). From our perspective, the important aspect of http/1.0 over http/0.9 is the introduction of Web-Headers (header fields, also known as *“headers”*) & Web-Bodies (an entity body) (see *“4.HTTP Message”* on p20 of the pdf).
 
-The introduction of *“headers”* & *“bodies”* allows the introduction of content negotiation, even though at this early beginning it is most basic. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy-servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed. My own testing showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one fifth). On admin-edit pages (masses of duplicated <select> drop-down boxes) reductions exceed 90%. So, most effective. These are the relevant new features introduced in the spec:
-
-| Name             | RFC-1945         | PDF Page         | Info             |
-|:-----------------|:-----------------|:-----------------|:-----------------|
-URI | 3.2 Uniform Resource Identifiers | 13 | some words
-
+The introduction of *“headers”* & *“bodies”* allows the introduction of content negotiation, even though at this early beginning it is most basic. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy-servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed. My own testing showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one fifth). On admin-edit pages (masses of duplicated <select> drop-down boxes) reductions exceed 90%. So, most effective.

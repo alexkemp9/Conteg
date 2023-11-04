@@ -41,6 +41,6 @@ Entity Headers | 7.1 Entity Header Fields | 28 | 7 types of Entity Header were i
 Expires | 10.7 Expires | 39 | ***Content Negotiation***: affects caching
 If-Modified-Since | 10.9 If-Modified-Since | 41 | ***Content Negotiation***:<br />server returns 304 (not modified) if resource unchanged
 Last-Modified | 10.10 Last-Modified | 42 | ***Content Negotiation***:<br />eg *“Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT”*
-Location | 10.11 Location | 42 | ***Content Negotiation***: (accompanied by 301 \| 302)<br />A directive to client to re-issue request (absolute URL)<br />eg *“Location: \http://www.w3.org/hypertext/WWW/NewLocation.html”*
+Location | 10.11 Location | 42 | ***Content Negotiation***: (accompanied by 301 \| 302)<br />A directive to client to re-issue request (absolute URL)<br />eg *“Location: http ://www .w3.org/hypertext/WWW/NewLocation.html”*
 Pragma | 10.12 Pragma | 42 | ***Content Negotiation***: (curiously, still in use although deprecated)<br />Client telling proxies not to use any cached entity:<br />eg *“Pragma: no-cache”*
 Referer (sic) | 10.13 Referer | 43 | 

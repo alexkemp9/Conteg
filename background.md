@@ -1,6 +1,7 @@
 # *Conteg*
 A Content-Negotiation + Cache-Control Class for PHP-produced HTTP web-output
 
+## *HTTP Background*
 This document is intended to provide background on the HTTP protocol as it relates to the use of Conteg. For that reason it emphasises the introduction of Content Negotiation & Caching within the different HTTP versions.
 
 ## *History*
@@ -40,5 +41,5 @@ Expires | 10.7 Expires | 39 | ***Content Negotiation***: affects caching
 If-Modified-Since | 10.9 If-Modified-Since | 41 | ***Content Negotiation***:<br />server returns 304 (not modified) if resource unchanged
 Last-Modified | 10.10 Last-Modified | 42 | ***Content Negotiation***:<br />eg *“Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT”*
 Location | 10.11 Location | 42 | ***Content Negotiation***: (accompanied by 301 \| 302)<br />A directive to client to re-issue request (absolute URL)<br />eg *“Location: http ://www .w3.org/hypertext/WWW/NewLocation.html”*
-Pragma | 10.12 Pragma | 42 | ***Content Negotiation***: (curiously, still in use although deprecated)<br />Client telling proxies not to use any cached entity:<br />eg *“Pragma: no-cache”*
+Pragma | 10.12 Pragma | 42 | ***Content Negotiation***: (curiously, still in use although deprecated)<br />eg Client telling proxies not to use any cached entity:<br />eg *“Pragma: no-cache”*
 Referer (sic) | 10.13 Referer | 43 | 

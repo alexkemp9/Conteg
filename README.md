@@ -31,7 +31,7 @@ These are the relevant new features introduced in the HTTP/1.0 spec:
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URI | 3.2 Uniform Resource Identifiers | 13 | 
 URL | 3.2.2 http URL | 14 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
-Compression | 3.5 Content Codings | 17 | ***Content Negotiation***:<br />content-coding = "gzip" \| "compress"
+Compression | 3.5 Content Codings | 17 | ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress"
 Methods | 5.1.1 Method | 23 | Method = "GET" \| "HEAD" \| "POST"
 Headers | 5.2 Request Header Fields | 24 | ***Content Negotiation***:<br />Request-Header = Authorization \| From \| If-Modified-Since \| Referer \| User-Agent
 Status | 6.1 Status-Line | 25 | eg first line is *“HTTP/1.0 200 ”*; This allows the client to differentiate a http/0 response from a http/1 response.

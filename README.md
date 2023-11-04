@@ -28,5 +28,4 @@ The introduction of *“headers”* & *“bodies”* allows the introduction of 
 | Name             | RFC-1945         | PDF Page         | Info             |
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URI | 3.2 Uniform Resource Identifiers | 13 | 
-URL | 3.2.2 http URL | 14 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
 

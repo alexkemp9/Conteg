@@ -74,5 +74,5 @@ The previous paragraph covered reductions due to activating compression (on by d
  *    PHP 4.3.0+: $file + $line bug-catching; file_get_contents()
  *    zlib:       Needed for compression encoding (odds are you have it).
  *    `ExtendedStatus On' in httpd.conf (Apache) (re: $_SERVER variables)
-*/
+ */
 ```

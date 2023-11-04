@@ -67,6 +67,7 @@ The previous paragraph covered reductions due to activating compression (on by d
  )
  */
 ```
+
 ### *Class Requirements*
  
 ```php
@@ -74,5 +75,53 @@ The previous paragraph covered reductions due to activating compression (on by d
  *    PHP 4.3.0+: $file + $line bug-catching; file_get_contents()
  *    zlib:       Needed for compression encoding (odds are you have it).
  *    `ExtendedStatus On' in httpd.conf (Apache) (re: $_SERVER variables)
+ */
+```
+
+ ### *How to use the Class*
+ 
+```php
+/*
+ *  Note before: SMP machines: use the setup parameter:
+ *    'cpu_number' => (number-of-cpus/cores)
+ *
+ *  Simplest possible usage requires 3 lines:
+ *    1 Turn Output Buffering on.
+ *    2 Include the Class file.
+ *    3 On the *very* last line create an instance of the Class.
+ *
+ *    ------------Start of file---------------
+ *    |<?php
+ *    | ob_start();            // <==== line 1
+ *    | include('Conteg.inc'); // <==== line 2
+ *    |
+ *    |... the page ...
+ *    |
+ *    | new Conteg();          // <==== line 3
+ *    |?>
+ *    -------------End of file----------------
+ *
+ *  Variations:
+ *  ----------
+ *    A `$param' array is available as a setup parameter to the Class constructor
+ *+   (line 3). It is an array of `parameter-name' => `parameter-value' pairs.
+ *
+ *  Here is the simplest HTTP/1.0 usage:
+ *
+      $param   = array(
+         'modified' => strtotime( $mdate ),     //  here, $mdate is string (default is time())
+         'expiry'   => 864000                   //  set expiry date 10 days from now
+      );                                        //+ default is 1 hour
+      $Encode   = new Conteg( $param );
+ *
+ *  Here is the simplest HTTP/1.1 usage:
+ *
+      $param   = array(
+         'use_etag'   => TRUE,                  // default is Weak ETags
+         'modified'   => $mdate,                // here, $mdate is Unix timestamp
+         'expiry'      => 3600                  // set expiry date 1 hour from time()
+      );
+      $Encode   = new Conteg( $param );
+ *
  */
 ```

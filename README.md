@@ -27,6 +27,7 @@ The introduction of *“headers”* & *“bodies”* allows the introduction of 
 
 These are the relevant new features introduced in the spec:
 
+
 | Name             | RFC-1945         | PDF Page         | Info             |
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URI | 3.2 Uniform Resource Identifiers | 13 | 

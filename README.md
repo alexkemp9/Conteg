@@ -35,7 +35,7 @@ Compression | 3.5 Content Codings | 17 | ***Content Negotiation***: <br /> conte
 Methods | 5.1.1 Method | 23 | Method = "GET" \| "HEAD" \| "POST"
 Headers | 5.2 Request Header Fields | 24 | ***Content Negotiation***:<br />Request-Header = Authorization \| From \| If-Modified-Since \| Referer \| User-Agent
 Status | 6.1 Status-Line | 25 | eg first line is *“HTTP/1.0 200 ”*; This allows the client to differentiate a http/0 response from a http/1 response.
-Status Codes | 6.1.1 Status Code and Reason Phrase | 26 | 1st 15 codes were introduced
+Status Codes | 6.1.1 Status Code and Reason Phrase | 26 | 1st 15 codes were introduced: Status-Code =<br />"200"; OK<br />"201"; Created<br />"202"; Accepted<br />"204"; No Content<br />"301"; Moved Permanently<br />"302"; Moved Temporarily<br />"304"; Not Modified<br />"400"; Bad Request<br />"401"; Unauthorized<br />"403"; Forbidden<br />"404"; Not Found<br />"500"; Internal Server Error<br />"501"; Not Implemented<br />"502"; Bad Gateway<br />"503"; Service Unavailable
 Response Headers | 6.2 Response Header Fields | 27 | ***Content Negotiation***:<br />Response-Header = Location \| Server \| WWW-Authenticate
 Entity Headers | 7.1 Entity Header Fields | 28 | There are 7 types of Entity Header introduced
 Expires | 10.7 Expires | 39 | ***Content Negotiation***: affects caching

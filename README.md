@@ -13,7 +13,9 @@ Sir Tim Berners‑Lee had written the software for pretty much all of what becam
 This introduction of *“headers”* & *“bodies”* allows content negotiation between client & server. Introduced at HTTP/1.0 it was basic but already remarkably complete. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy‑servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed. My own testing showed typical values of +70% at level 8/9 (reduction to one‑third of original size), with some pages better than 80% (reduction to one‑fifth). On admin‑edit pages (masses of duplicated &lt;select> drop‑down boxes) reductions exceed 90%. So, most effective.
 
 ## *Class Help*
-The previous paragraph covered reductions due to activating compression (on by default, and the only item auto-negotiated *inside* the Class) (`Accept‑Encoding`, activated by `'use_accept_encode' => TRUE` in setup). There are a great many others that can be activated. First, here is the Constructor parameter‑array default settings:
+The previous paragraph covered reductions due to activating compression (on by default, and the only item auto-negotiated *inside* the Class) (`Accept‑Encoding`, activated by `'use_accept_encode' => TRUE` in setup). Load-balanced compression is considered important enough that default is ON at min level 3. The routine takes < 0.002 secs on a twin Xeon 2.4 GHz, Linux 2.6.
+
+There are a great many other Content Negotiation items that can be activated (though they are not auto-negotiated): search for *“Help, Advice + Other Stuff”* at the end of the Class. First, here is the Constructor parameter‑array default settings:
 
 ### *Setup Array*
 
@@ -124,4 +126,130 @@ The previous paragraph covered reductions due to activating compression (on by d
       $Encode   = new Conteg( $param );
  *
  */
+```
+### *Content Negotiation*
+Apart from *Load-balanced Compression* (on by default) there is almost no *Content Negotiation* in the setup as envisioned above. So get ready, we are about to dive into the deeper parts of the pool, starting with *Request Headers*.
+
+The schema involved with external negotiation (that is, external to the Class) is below the briefs on each Request/Response Header below. This is what you need to know before diving into those:
+1. The default for *Conteg* is to print out the web-page at instantiation (each line#3 above)
+2. That behaviour needs to be switched OFF in order to conduct External Negotiation
+3. The `'noprint' => TRUE` setup parameter is used to do that
+4. Using *noprint* will then require an explicit `$Encode->show()` as the last line of the script
+5. Status 304, 406, 412 (early exit) throw a spanner into the above, as they will require an immediate exit<br />(see below the Request/Response Header briefs for the method to do that)
+ 
+```php
+/*
+ *  Content Negotiation:
+ *  ===================
+ *
+ *  Request Headers:
+  *  ---------------
+ *    Accept:              (negotiate outside Class) (media-type)
+ *      $accept['type/sub-type']     = quality-integer (0-10)
+ *                         Defaults:  'use_accept'         => FALSE
+ *                                    'type'               => 'text/html'
+ *                         Functions: getAccept()
+ *                                    mediaTypeAccepted()
+ *                                    isResponseNoContent()
+ *                         accept:    (normal action)
+ *                         or:        406 Not Acceptable
+ *
+ *    Accept-Charset:      (negotiate outside Class)
+ *      $accept_charset['charset']   = quality-integer (0-10)
+ *                         Defaults:  'use_accept_charset' => FALSE
+ *                                    'charset'            => 'ISO-8859-1'
+ *                         Functions: getAcceptCharset()
+ *                                    charsetAccepted()
+ *                                    isResponseNoContent()
+ *                         accept:    (normal action)
+ *                         or:        406 Not Acceptable
+ *
+ *    Accept-Encoding:     Auto-negotiated inside Class if TRUE
+ *      $accept_encoding['encoding'] = quality-integer (0-10)
+ *                         Defaults:  'use_accept_encode'  => TRUE
+ *                                    'use_user_agent'     => TRUE
+ *                                    'min_compression'    => 3
+ *                                    'encodings'          => array('gzip','deflate','compress')
+ *                         Functions: compress()
+ *                                    getCompLevel()
+ *                                    getSize()
+ *                                    negotiateEncoding()
+ *                                    setSearch()
+ *                         accept:    load-balanced compression
+ *                         or:        `identity' (no compression)
+ *
+ *    Accept-Language:     (negotiate outside Class)
+ *      $accept_language['lang']     = quality-integer (0-10)
+ *                         Defaults:  'use_accept_lang'    => FALSE
+ *                                    'lang'               => 'en'
+ *                         Function:  getAcceptLang()
+ *                         accept:    (user decided)
+ *                         or:        (user decided)
+ *
+ *    Accept-Ranges:       Auto-negotiated inside Class if TRUE
+ *      $range['begin']              = int (byte)
+ *      $range['end']                = int (byte)
+ *                         Defaults:  'use_accept_ranges'  => FALSE
+ *                         accept:    206 Partial Content
+ *                         or:        416 Requested Range Not Satisfiable
+ *                         Notes:     multipart/byteranges not accepted
+ *                                    cannot be used with weak eTags
+ *                                    switches off compression if used
+ *
+ *    If-Modified-Since:   Auto-negotiated inside Class if TRUE
+ *      $if_modified_since           = timestamp
+ *                         Defaults:  'use_last_modified'  => TRUE
+ *                                    'use_expires'        => TRUE
+ *                                    'modified'           => NULL
+ *                                    'expiry'             => 3600 (1 hour)
+ *                         Function:  isResponseNoContent()
+ *                         accept:    304 Not Modified
+ *                         or:        (normal action)
+ *
+ *    If-None-Match:       Auto-negotiated inside Class if TRUE
+ *      $if_none_match[]             = eTags
+ *                         Defaults:  'use_etag'           => FALSE
+ *                                    'weak_etag'          => TRUE
+ *                                    'etag'               => ''
+ *                                    'other_var'          => ''
+ *                         Function:  isResponseNoContent()
+ *                         accept:    304 Not Modified
+ *                         or:        412 Precondition Failed
+ *
+ *    If-Match:            Auto-negotiated inside Class if TRUE
+ *      $if_match[]                  = eTags
+ *                         Defaults:  same as If-None-Match
+ *                         Function:  isResponseNoContent()
+ *                         accept:    (normal action)
+ *                         or:        412 Precondition Failed
+ *
+ *    If-Range:            Auto-negotiated inside Class if TRUE
+ *      $if_range                    = timestamp/string (modified / eTag)
+ *                         Defaults:  same as If-None-Match / If-Unmodified-Since
+ *                         if 412:    send 200 OK
+ *                         if 200:    send 206 Partial content
+ *                         Notes:     eTags are added to $if_match[]
+ *                                    dates are added to $if_unmodified_since
+ *
+ *    If-Unmodified-Since: Auto-negotiated inside Class if TRUE
+ *      $if_unmodified_since         = timestamp
+ *                         Defaults:  same as If-Modified-Since
+ *                         Function:  isResponseNoContent()
+ *                         accept:    (normal action)
+ *                         or:        412 Precondition Failed
+ *
+ *  (Reported - no negotiation)
+ *
+ *    Referer:
+ *      $referer[]                   = parse_url( $referer )
+ *                         Defaults: 'referer_lower_case' => TRUE
+ *                         Functions: getReferer()
+ *
+ *    User-Agent:
+ *      $user_agent                  = string
+ *      $browserAgent                = string
+ *      $browserOS                   = string
+ *      $browserVersion              = string
+ *
+*/
 ```

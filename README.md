@@ -15,7 +15,7 @@ This introduction of *“headers”* & *“bodies”* allows content negotiation
 ## *Class Help*
 The previous paragraph covered reductions due to activating compression (on by default, and the only item auto-negotiated *inside* the Class) (`Accept‑Encoding`, activated by `'use_accept_encode' => TRUE` in setup). There are a great many others that can be activated. First, here is the Constructor parameter‑array default settings:
 
-### *Class Setup Array*
+### *Setup Array*
 
 ```php
 /*
@@ -68,7 +68,7 @@ The previous paragraph covered reductions due to activating compression (on by d
  */
 ```
 
-### *Class Requirements*
+### *Requirements*
  
 ```php
 /*
@@ -78,7 +78,7 @@ The previous paragraph covered reductions due to activating compression (on by d
  */
 ```
 
- ### *How to use the Class*
+ ### *How to use*
  
 ```php
 /*

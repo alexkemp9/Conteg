@@ -140,7 +140,7 @@ The schema involved with external negotiation (that is, external to the Class) i
  *  ===================
  *
  *  Request Headers:
-  *  ---------------
+ *  ---------------
  *    Accept:              (negotiate outside Class) (media-type)
  *      $accept['type/sub-type']     = quality-integer (0-10)
  *                         Defaults:  'use_accept'         => FALSE
@@ -248,7 +248,7 @@ The schema involved with external negotiation (that is, external to the Class) i
  *      $browserOS                   = string
  *      $browserVersion              = string
  *
-*/
+ */
 ```
 ### *Response Headers*
 This is either language or mime:
@@ -277,7 +277,8 @@ This is either language or mime:
       );
 /*    ...
  *    (negotiation, processing, etc.)
- *    .../
+ *    ...
+ */
       $Encode->show();
 ```
 ### *Status 304, 406, 412 (early exit)*
@@ -352,7 +353,7 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
  *     'cache_control' => (array)
  *
  *     (note that this array key is, itself, an array of key => value pairs)
- *
+ */
       $Encode = new Conteg(
          array(
             'cache_control' => array(
@@ -360,10 +361,10 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
             )
          )
       );
- *
+/*
  *     Any of the individual parts of the Cache-Control header may be set; see the comments
  *     to setup() for details. For your convenience, here are all of the sub-parts:
- *
+ */
       $Encode = new Conteg(
          array(
             'cache_control'   => array(
@@ -386,6 +387,6 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
             )
          )
       );
- *
- *     Any `no-cache' value will cause the `Expires' value to be reset to a date in the past.
 /*
+ *     Any `no-cache' value will cause the `Expires' value to be reset to a date in the past.
+ */

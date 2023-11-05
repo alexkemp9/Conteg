@@ -15,7 +15,7 @@ This introduction of *“headers”* & *“bodies”* allows content negotiation
 ## *Class Help*
 The previous paragraph covered reductions due to activating compression (on by default, and the only item auto-negotiated *inside* the Class) (`Accept‑Encoding`, activated by `'use_accept_encode' => TRUE` in setup). Load-balanced compression is considered important enough that default is ON at min level 3. The routine takes < 0.002 secs on a twin Xeon 2.4 GHz, Linux 2.6.
 
-There are a great many other Content Negotiation items that can be activated (though they are not auto-negotiated): search for *“Help, Advice + Other Stuff”* at the end of the Class. First, here is the Constructor parameter‑array default settings:
+There are a great many other Content Negotiation items that can be activated (though they are not auto-negotiated): search for *“Help, Advice + Other Stuff”* at the end of the Class. In addition, look at the header for functions (particularly `setup()``) for more detailed help. First, here is the Constructor parameter‑array default settings:
 
 ### *Setup Array*
 
@@ -414,3 +414,66 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
  *                     MSIE 5 + 6 will refuse to cache content (no 304s) for any except `Vary: User-Agent'.
  *                     (see also http://forums.modem-help.co.uk/viewtopic.php?p=1236)
  */
+```
+### *Change Log:*
+ 
+```php
+/*
+ *    0.13.14: Mod: replace all tabs with 3 spaces ready for GitHub       02 Nov 23
+ *    0.13.13: Mod: check for apache_note() viability                     14 Jan 16
+ *                 +function unavailable in rare circumstances
+ *    0.13.12: Mod: ereg() replaced throughout by preg_match()            09 Apr 14
+ *                 +to avoid E_DEPRECATED warnings from PHP 5.3.0 +
+ *    0.13.11: Bugfix: _initRequest(): broken $GLOBALS in php 5.3.3;      13 Mar 14
+ *+                    now returns TRUE / FALSE
+ *+                    Conteg()      : added premature return if failure.
+ *             Bugfix: getAccept(), getAcceptCharset() + getAcceptLang()
+ *+                    return correct array values rather than just TRUE.
+ *             Added : setup(): `download' to cache_control macros +
+ *+                             `filename'
+ *+                    (setup param for Content-Disposition (file download))
+ *             Mod:  : _trigger_error(): return FALSE rather than die()
+ *    0.13.10: added $_minCompression + 'min_compression' setup parameter 27 Apr 11
+ *    0.13.9:  isResponseNoContent() added (for early 304, 406, 416)      20 Aug 10
+ *    0.13.8:  _loadAvgUnix() added, _loadAvgBSD(), _loadAvgLinux() +     17 Apr 09
+ *+            getCompLevel() rewritten (thanks oriceon).
+ *    0.13.7:  $browserVersion bugfix for Safari within _initRequest();   07 Mar 08
+ *+            _initResponse() bugfixes: prevent PHP Notices (empty
+ *+            Encodings or Charsets).
+ *    0.13.6:  Added `use_last_modified' to Constructor parameter, for    02 Nov 07
+ *+            those rare occasions where a 304 must NOT be sent, plus
+ *+            `use_expires' to be consistent.
+ *    0.13.5:  Bugfix: use of `Vary:' header made compliant; added        08 Oct 07
+ *+            $_noUserAgent, $_noVary + setup() parameters 'use_user_agent'
+ *+            'use_vary' (both TRUE by default).
+ *    0.13.4:  Bugfix: _initRequest() for non-std Q-values                07 Sep 07
+ *    0.13.3:  Bugfix: removed duplicate $if_match declaration; added     07 Jul 07
+ *+            $file + $line to headers_sent() for better bug-catching.
+ *    0.13.2:  Bugfixes to charsetAccepted() + mediaTypeAccepted()        30 Apr 07
+ *    0.13.1:  Added 'cpu_number' to Constructor parameter ($_num_cpu)    05 Mar 07
+ *+            bugfix for $referer (['uri'] not included in array)
+ *    0.13:    Added $referer, getReferer(), '404_to_410', $_no410,       18 Feb 07
+ *+            'http_status', $_httpStatus, 'msie_error_fix',
+ *+            $_noMSErrorFix + sendStatusHeader() bugfix.
+ *             See also http://forums.modem-help.co.uk/viewtopic.php?t=670
+ *    0.12.3:  Bugfix for 'expiry' (was always 1 hr) (thank you Bob).     04 Oct 06
+ *    0.12.2:  Added $_num_cpu for SMP boxes (like mine!).                18 Aug 06
+ *    0.12.1:  Added sendStatusHeader() + 404 responses (used to create   02 Ju1 06
+ *+            custom Error-pages).
+ *    0.12:    Added requestNoCache(), requestNoStore(),                  04 Jun 06
+ *+            $_cache_control_response + $_cache_control_request arrays.
+ *    0.11:    BugFix in _initResponse() [INM not tripped but IMS is];    13 Mar 06
+ *+            'other_var' added to setup() (ref: weak eTags) (bugfix).   23 Feb 06
+ *    0.10:    Gzip_encode rewritten; Request + Response headers added.   25 Aug 05
+ *             Browser detect added to negotiateEncoding() to fix blanks. 09 Sep 05
+ *             Content-Negotiation completed for compression-Encoding.    16 Sep 05
+ *
+ * Thanks To:
+ * =========
+ *  Gzip-encoding originally from work by Sandy McArthur,Jr (see leknor.com).
+ *  Response headers inspired by work by Alexandre Alapetite (alexandre.alapetite.net) and others.
+ *
+ * This version available from:
+ *   https://github.com/alexkemp9/Conteg
+ */
+```

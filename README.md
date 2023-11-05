@@ -253,3 +253,35 @@ The schema involved with external negotiation (that is, external to the Class) i
  *
 */
 ```
+### *Response Headers*
+This is either language or mime:
+ 
+```php
+/*
+ *  Response Headers:
+ *  ----------------
+ *    Content-Language:    Added if TRUE and not empty
+ *                         Defaults:  'use_content_lang'   => TRUE
+ *                                    'lang'               => 'en'
+ *
+ *    Content-Type:        Added if TRUE and not empty
+ *                         Defaults:  'use_content_type'   => TRUE
+ *                                    'type'               => 'text/html'
+ *                                    'charset'            => 'ISO-8859-1'
+ *
+ *
+ *  External Negotiation will require the 'noprint' parameter:
+ *  --------------------
+ *
+      $Encode = new Conteg(
+         array(
+            'noprint'  => TRUE
+         )
+      );
+ *    ...
+ *    (negotiation, processing, etc.)
+ *    ...
+      $Encode->show();
+ *
+*/
+```

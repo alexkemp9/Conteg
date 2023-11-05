@@ -26,7 +26,7 @@ There are a great many other Content Negotiation items that can be activated (th
  *  These are all the possible array values within the single parameter supplied to
  *+ the constructor, and acted upon within setup(), with defaults.
  *  Note: none of the following is *required* - these are the program defaults:
- *
+ */
  array(
    '404'                => FALSE,                           // higher precedence than 'http_status'
    '404_to_410'         => TRUE,                            // see sendStatusHeader()
@@ -67,7 +67,6 @@ There are a great many other Content Negotiation items that can be activated (th
    'use_vary'           => TRUE,
    'weak_etag'          => TRUE
  )
- */
 ```
 
 ### *Requirements*
@@ -327,3 +326,70 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
  *               See accompanying text files, particularly for HTTP/1.1 usage.
  */
 ```
+
+### *Cache-Control*
+ 
+```php
+/*
+ *  HTTP/1.0: Governed by value of `Expires' + `Pragma: no-cache' headers.
+ *            Expires: "If the date given is equal to or earlier than the value of the Date
+ *+                    header, the recipient must not cache the enclosed entity."
+ *+           http://www.w3.org/Protocols/rfc1945/rfc1945.txt sec 10.7
+ *            Pragma:  Request header; sec 10.12 (also erroneously used in response headers)
+ *
+ *  HTTP/1.1: Cache-Control Request + Response headers.
+ *            http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 (see also sec 13.4)
+ *            http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 (see also sec 13.4)
+ *
+ *  Two functions are provided to be able to respond to request headers:
+ *     requestNoCache()   - returns: TRUE : a fresh response has been requested
+ *                                 (int): max requested age in secs of any cached-response
+ *                                 FALSE: no such request
+ *     requestNoStore()   - returns: TRUE : do not store (cache) this request
+ *                                 FALSE: no such request
+ *
+ *  Setting Response Cache-Control headers:
+ *  --------------------------------------
+ *     As with all other responses, Conteg is controlled by an array key within the single
+ *     parameter supplied to the constructor. In the case of Cache-Control headers this is:
+ *
+ *     'cache_control' => (array)
+ *
+ *     (note that this array key is, itself, an array of key => value pairs)
+ *
+      $Encode = new Conteg(
+         array(
+            'cache_control' => array(
+               'macro' => 'cache-all'
+            )
+         )
+      );
+ *
+ *     Any of the individual parts of the Cache-Control header may be set; see the comments
+ *     to setup() for details. For your convenience, here are all of the sub-parts:
+ *
+      $Encode = new Conteg(
+         array(
+            'cache_control'   => array(
+               'max-age'      => (int),         // secs; overrides the Expires header
+               'must-revalidate',               // forces caches to validate every request with server
+               'no-cache',
+               'no-store',
+               'no-transform',
+               'post-check'   => (int),
+               'pre-check'      => (int),
+               'private',
+               'proxy-revalidate',
+               'public',
+               's-maxage'      => (int),        // secs; for shared (not private) caches
+               'pragma'         => (string),    // strictly, not Cache-Control
+
+               'macro'         => 'cache-all',  // cache under all circumstances (default)
+               'macro'         => 'cache-none'  // never cache
+               'macro'         => 'download'    // download file rather than webpage
+            )
+         )
+      );
+ *
+ *     Any `no-cache' value will cause the `Expires' value to be reset to a date in the past.
+/*

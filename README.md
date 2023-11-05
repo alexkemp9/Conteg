@@ -108,23 +108,21 @@ There are a great many other Content Negotiation items that can be activated (th
  *+   (line 3). It is an array of `parameter-name' => `parameter-value' pairs.
  *
  *  Here is the simplest HTTP/1.0 usage:
- *
+ */
       $param   = array(
          'modified' => strtotime( $mdate ),     //  here, $mdate is string (default is time())
          'expiry'   => 864000                   //  set expiry date 10 days from now
       );                                        //+ default is 1 hour
       $Encode   = new Conteg( $param );
- *
+/*
  *  Here is the simplest HTTP/1.1 usage:
- *
+ */
       $param   = array(
          'use_etag'   => TRUE,                  // default is Weak ETags
          'modified'   => $mdate,                // here, $mdate is Unix timestamp
          'expiry'      => 3600                  // set expiry date 1 hour from time()
       );
       $Encode   = new Conteg( $param );
- *
- */
 ```
 ### *Content Negotiation*
 Apart from *Load-balanced Compression* (on by default) there is almost no *Content Negotiation* in the setup as envisioned above. So get ready, we are about to dive into the deeper parts of the pool, starting with *Request Headers*.
@@ -271,18 +269,16 @@ This is either language or mime:
  *
  *  External Negotiation will require the 'noprint' parameter:
  *  --------------------
- *
+ */
       $Encode = new Conteg(
          array(
             'noprint'  => TRUE
          )
       );
- *    ...
+/*    ...
  *    (negotiation, processing, etc.)
- *    ...
+ *    .../
       $Encode->show();
- *
-*/
 ```
 ### *Status 304, 406, 412 (early exit)*
 The best way to lower system resources, reduce bandwidth + increase page-delivery speed is to send headers with no content (!).

@@ -323,7 +323,6 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
  *               See accompanying text files, particularly for HTTP/1.1 usage.
  */
 ```
-
 ### *Cache-Control*
  
 ```php
@@ -368,25 +367,50 @@ The best way to lower system resources, reduce bandwidth + increase page-deliver
       $Encode = new Conteg(
          array(
             'cache_control'   => array(
-               'max-age'      => (int),         // secs; overrides the Expires header
-               'must-revalidate',               // forces caches to validate every request with server
+               'max-age'      => (int),        // secs; overrides the Expires header
+               'must-revalidate',              // forces caches to validate every request with server
                'no-cache',
                'no-store',
                'no-transform',
                'post-check'   => (int),
-               'pre-check'      => (int),
+               'pre-check'    => (int),
                'private',
                'proxy-revalidate',
                'public',
-               's-maxage'      => (int),        // secs; for shared (not private) caches
-               'pragma'         => (string),    // strictly, not Cache-Control
+               's-maxage'     => (int),        // secs; for shared (not private) caches
+               'pragma'       => (string),     // strictly, not Cache-Control
 
-               'macro'         => 'cache-all',  // cache under all circumstances (default)
-               'macro'         => 'cache-none'  // never cache
-               'macro'         => 'download'    // download file rather than webpage
+               'macro'        => 'cache-all',  // cache under all circumstances (default)
+               'macro'        => 'cache-none'  // never cache
+               'macro'        => 'download'    // download file rather than webpage
             )
          )
       );
 /*
  *     Any `no-cache' value will cause the `Expires' value to be reset to a date in the past.
+ */
+```
+### *Vary headers*
+ 
+```php
+/*
+ *     By default, a `Vary ' header is sent if the response suffers any form of Content negotiation.
+ *     By default, the response is negotiated for `Accept-Encoding', and this is itself varied by User-Agent.
+ *     Thus, by default a `Vary: User-Agent, Accept-Encoding' header will ALWAYS be sent. This behaviour is
+ *     controlled by the Constructor setup() parameters:
+ *
+ *       'use_accept'         => FALSE
+ *       'use_accept_charset' => FALSE
+ *       'use_accept_encode'  => TRUE
+ *       'use_accept_lang'    => FALSE
+ *       'use_user_agent'     => TRUE
+ *       'use_vary'           => TRUE
+ *
+ *     Setting `use_vary' to FALSE will prevent any `Vary' headers from being sent.
+ *     Setting any other of the parameters above to `FALSE' will switch off Content Negotiation for that
+ *     specific Request header, although the value of the header is still reported.
+ *
+ *     Important note: MSIE 4.x throws a (false) error message with Vary headers.
+ *                     MSIE 5 + 6 will refuse to cache content (no 304s) for any except `Vary: User-Agent'.
+ *                     (see also http://forums.modem-help.co.uk/viewtopic.php?p=1236)
  */

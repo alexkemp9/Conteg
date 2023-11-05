@@ -15,7 +15,7 @@ This introduction of *“headers”* & *“bodies”* allows content negotiation
 ## *Class Help*
 The previous paragraph covered reductions due to activating compression (on by default, and the only item auto-negotiated *inside* the Class) (`Accept‑Encoding`, activated by `'use_accept_encode' => TRUE` in setup). Load-balanced compression is considered important enough that default is ON at min level 3. The routine takes < 0.002 secs on a twin Xeon 2.4 GHz, Linux 2.6.
 
-There are a great many other Content Negotiation items that can be activated (though they are not auto-negotiated): search for *“Help, Advice + Other Stuff”* at the end of the Class. In addition, look at the header for functions (particularly `setup()``) for more detailed help. First, here is the Constructor parameter‑array default settings:
+There are a great many other Content Negotiation items that can be activated (though they are not auto-negotiated): search for *“Help, Advice + Other Stuff”* at the end of the Class. In addition, look at the header for functions within the code (particularly `setup()`) for more detailed help. First, here is the Constructor parameter‑array default settings:
 
 ### *Setup Array*
 

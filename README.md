@@ -285,3 +285,45 @@ This is either language or mime:
  *
 */
 ```
+### *Status 304, 406, 412 (early exit)*
+The best way to lower system resources, reduce bandwidth + increase page-delivery speed is to send headers with no content (!).
+ 
+```php
+/*
+ *  Simplest possible HTTP/1.0 usage requires 5 lines:
+ *    1 Turn Output Buffering on.
+ *    2 Include the Class file.
+ *    3 Create an instance of the Class:
+ *      use `noprint' + `modified' parameters
+ *    4 Check for `304' response-status:
+ *      show+exit if so, else continue script
+ *    5 On the *very* last line `show()' page
+ *
+ *    ------------Start of file---------------
+ *    |<?php
+ *    | ob_start();               // <= line 1
+ *    | include('Conteg.inc');    // <= line 2
+ *    | $Encode = new Conteg(     // <= line 3
+ *    |   array(
+ *    |     'modified' => $mdate, // timestamp
+ *    |     'noprint'  => TRUE
+ *    |   )
+ *    | );
+ *    | if( $Encode->isResponseNoContent()) {
+ *    |   $Encode->show();
+ *    |   exit();                 // <= line 4
+ *    | }
+ *    |
+ *    |... the rest of page ...
+ *    |
+ *    | $Encode->show();          // <= line 5
+ *    |?>
+ *    -------------End of file----------------
+ *
+ *  Note after:  `modified' + other parameters can be delivered at any time after
+ *               instantiation with setup(), as often as you wish. It makes no sense to
+ *               use isResponseNoContent() until the complete set of relevant HTTP/1.0 or
+ *               HTTP/1.1 control-parameters are set in Conteg.
+ *               See accompanying text files, particularly for HTTP/1.1 usage.
+ */
+```

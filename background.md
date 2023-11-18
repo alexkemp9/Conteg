@@ -34,16 +34,16 @@ These are the relevant new features introduced in the HTTP/1.0 spec:
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URI | 3.2 Uniform Resource Identifiers | 13 | 
 URL | 3.2.2 http URL | 14 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
-Compression | 3.5 Content Codings | 17 | ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress"
+Compression | 3.5 Content Codings | 17 | 🟢 ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress"
 Methods | 5.1.1 Method | 23 | Method = "GET" \| "HEAD" \| "POST"
-Headers | 5.2 Request Header Fields | 24 | ***Content Negotiation***:<br />Request-Header = Authorization \| From \| If-Modified-Since \| Referer \| User-Agent
+Headers | 5.2 Request Header Fields | 24 | 🟢 ***Content Negotiation***:<br />Request-Header = Authorization \| From \| If-Modified-Since \| Referer \| User-Agent
 Status | 6.1 Status-Line | 25 | eg first line is *“HTTP/1.0 200 ”*; This allows the client to differentiate a http/0 response from a http/1 response.
 Status Codes | 6.1.1 Status Code and Reason Phrase | 26 | 15 codes were introduced: Status-Code =<br />"200"; OK<br />"201"; Created<br />"202"; Accepted<br />"204"; No Content<br />"301"; Moved Permanently<br />"302"; Moved Temporarily<br />"304"; Not Modified<br />"400"; Bad Request<br />"401"; Unauthorized<br />"403"; Forbidden<br />"404"; Not Found<br />"500"; Internal Server Error<br />"501"; Not Implemented<br />"502"; Bad Gateway<br />"503"; Service Unavailable
-Response Headers | 6.2 Response Header Fields | 27 | ***Content Negotiation***:<br />Response-Header = Location \| Server \| WWW-Authenticate
+Response Headers | 6.2 Response Header Fields | 27 | 🟢 ***Content Negotiation***:<br />Response-Header = Location \| Server \| WWW-Authenticate
 Entity Headers | 7.1 Entity Header Fields | 28 | 7 types of Entity Header were introduced: Entity-Header =<br />Allow \|<br />Content-Encoding \|<br />Content-Length \|<br />Content-Type \|<br />Expires \|<br />Last-Modified \|<br />extension-header
-Expires | 10.7 Expires | 39 | ***Content Negotiation***: affects caching
-If-Modified-Since | 10.9 If-Modified-Since | 41 | ***Content Negotiation***:<br />server returns 304 (not modified) if resource unchanged
-Last-Modified | 10.10 Last-Modified | 42 | ***Content Negotiation***:<br />eg *“Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT”*
-Location | 10.11 Location | 42 | ***Content Negotiation***: (accompanied by 301 \| 302)<br />A directive to client to re-issue request (absolute URL)<br />eg *“Location: http ://www .w3.org/hypertext/WWW/NewLocation.html”*
-Pragma | 10.12 Pragma | 42 | ***Content Negotiation***: (curiously, still in use although deprecated)<br />eg Client telling proxies not to use any cached entity:<br />eg *“Pragma: no-cache”*
+Expires | 10.7 Expires | 39 | 🟢 ***Content Negotiation***: affects caching
+If-Modified-Since | 10.9 If-Modified-Since | 41 | 🟢 ***Content Negotiation***:<br />server returns 304 (not modified) if resource unchanged
+Last-Modified | 10.10 Last-Modified | 42 | 🟢 ***Content Negotiation***:<br />eg *“Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT”*
+Location | 10.11 Location | 42 | 🟢 ***Content Negotiation***: (accompanied by 301 \| 302)<br />A directive to client to re-issue request (absolute URL)<br />eg *“Location: http ://www .w3.org/hypertext/WWW/NewLocation.html”*
+Pragma | 10.12 Pragma | 42 | 🟢 ***Content Negotiation***: (curiously, still in use although deprecated)<br />eg Client telling proxies not to use any cached entity:<br />eg *“Pragma: no-cache”*
 Referer (sic) | 10.13 Referer | 43 | 

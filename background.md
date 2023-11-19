@@ -37,9 +37,9 @@ The WWW is a network of networks. The premise, broadly, is that electronic serve
 
 The introduction of *“headers”* & *“bodies”* allows the introduction of content negotiation, even though at this early beginning it is most basic. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy-servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed.
 
-Savings come with the use of *HEAD* (allows a client to *“sniff”* the server & thus perhaps not have to receive a file); use of *If-Modified-Since* & *“304 Not Modified”* & again perhaps not have to receive a file; interaction between cache, *“Pragma: no-cache”*, *“Expires”* & *“Last-Modified”* to perhaps not have to receive a file. However, the savings from those already mentioned is dwarfed by the savings available by using *Compression*.
+Savings come with the use of *HEAD* (allows a client to *“sniff”* the server & thus perhaps not have to receive a file); use of *If-Modified-Since* & *“304 Not Modified”* & again perhaps not have to receive a file; interaction between cache, *“Pragma: no-cache”*, *“Expires”* & *“Last-Modified”* to perhaps not have to receive a file. However, those savings already mentioned are dwarfed by savings available when using *Compression*, and specifically if the entity is text.
 
-My own testing showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one-fifth). On admin-edit pages (masses of duplicated &lt;select> drop-down boxes) reductions exceed 90%. So, most effective.
+My own testing of *content-coding* (server-enabled compression) showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one-fifth). On admin-edit pages (masses of duplicated &lt;select> drop-down boxes) reductions exceed 90%. So, most effective.
 
 These are the relevant new features introduced in the HTTP/1.0 spec:
 

@@ -24,10 +24,10 @@ Pretty much all of the WWW (World Wide Web), HTTP & Web Browsers was initiated, 
 HTTP is a protocol universally agreed upon & used for communicating across the WWW. These words are written in 2023 & the idea of computer networking is now a commonplace affair for consumers as much as it has always been for Business, Government and so on. That was not the case in 1980.
 
 The WWW is a network of networks. The premise, broadly, is that electronic servers are embedded within the WWW, and electronic clients are able to interact with those servers. That does include aspects of remote setup, service, etc., but we are going to concentrate upon the aspect of content delivery from Server to Client. The fundamental premise is that Clients make electronic *Requests* and Servers give electronic *Responses*:
-1. Wikipedia lists [9 current Request methods](https://en.wikipedia.org/wiki/HTTP#Request_methods)
-2. HTTP/0.9 only had *“GET”*, which translates simply as *“send me this file”*.
-3. HTTP/1.0 had three (*“GET”*, *“HEAD”* & *“POST”*).
-4. HTTP/1.1 has eight: (*“GET”*, *“HEAD”*, *“POST”*, *“OPTIONS”*, *“PUT”*, *“DELETE”*, *“TRACE”*, *“CONNECT”*).
+* Wikipedia lists [9 current Request methods](https://en.wikipedia.org/wiki/HTTP#Request_methods)
+* HTTP/0.9 only had *“GET”*, which translates simply as *“send me this file”*.
+* HTTP/1.0 had three (*“GET”*, *“HEAD”* & *“POST”*).
+* HTTP/1.1 has eight: (*“GET”*, *“HEAD”*, *“POST”*, *“OPTIONS”*, *“PUT”*, *“DELETE”*, *“TRACE”*, *“CONNECT”*).
 
 ### *HTTP/0.9:*
 ***HTTP/0.9*** specified only a simple one-line *“GET”* from Client to Server. The specification was listed on a single sheet of paper, and no RFC (Request for Comments) was ever produced. If you look closely in the HTTP/1.0 spec (next) you will find the HTTP/0.9 spec. After it was up & running, and proving both popular, effective & useful, work began immediately on the next iteration.

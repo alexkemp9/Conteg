@@ -66,7 +66,7 @@ These are the relevant 🟡 new features introduced in the HTTP/1.1 spec (entire
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URL | 3.2.2 http URL | 21 | “http:” “//” host [ “:” port ] [ abs_path [ “?” query ]]<br />🟡 ‘query’ is the addition to this spec
 Compression | 3.5 Content Codings | 25 | 🟢 ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress" \| "deflate" \| "identity"<br />🟡 ‘deflate’ &amp; ‘identity’ are 1.1 additions to this spec
-🟡 Q-Values | 3.9 Quality Values | 30 | 🟢 ***Content Negotiation***: Qvalue = ( “0” [ “.” 0*3DIGIT ] ) \| ( “1” [ “.” 0*3(“0”) ] )
-🟡 Language Tags | 3.10 Language Tags | 30 | 🟢 ***Content Negotiation***: eg en, en-US, en-cockney, i-cherokee, x-pig-latin<br />used within Accept-Language and Content-Language
-🟡 ETags | 3.11 Entity Tags | 31 | 🟢 ***Content Negotiation***: Entity-tag = [ weak ] opaque-tag<br />used within ETag, If-Match, If-None-Match, If-Range
-🟡 Ranges | 3.12 Range Units | 32 | 🟢 ***Content Negotiation***: Range-unit = bytes-unit | other-range-unit<br />used within Range, Content-Range
+🟡 Q-Values | 3.9 Quality Values | 30 | 🟢 ***Content Negotiation***: <br /> Qvalue = ( “0” [ “.” 0*3DIGIT ] ) \| ( “1” [ “.” 0*3(“0”) ] )
+🟡 Language Tags | 3.10 Language Tags | 30 | 🟢 ***Content Negotiation***: <br /> eg en, en-US, en-cockney, i-cherokee, x-pig-latin<br />used within Accept-Language and Content-Language
+🟡 ETags | 3.11 Entity Tags | 31 | 🟢 ***Content Negotiation***: <br /> Entity-tag = [ weak ] opaque-tag<br />used within ETag, If-Match, If-None-Match, If-Range
+🟡 Ranges | 3.12 Range Units | 32 | 🟢 ***Content Negotiation***: <br /> Range-unit = bytes-unit | other-range-unit<br />used within Range, Content-Range

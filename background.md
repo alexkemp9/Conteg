@@ -25,7 +25,7 @@ HTTP is a protocol universally agreed upon & used for communicating across the W
 
 The WWW is a network of networks. The premise, broadly, is that electronic servers are embedded within the WWW, and electronic clients are able to interact with those servers. That does include aspects of remote setup, service, etc., but we are going to concentrate upon the aspect of content delivery from Server to Client. The fundamental premise is that Clients make electronic *Requests* and Servers give electronic *Responses*:
 * Wikipedia lists [9 current Request methods](https://en.wikipedia.org/wiki/HTTP#Request_methods)
-* HTTP/0.9 only had *“GET”*, which translates simply as *“send me this file”*.
+* HTTP/0.9 only had *“GET”*, <br /> (*“send me this file”*)
 * HTTP/1.0 had three (*“GET”*, *“HEAD”* & *“POST”*).
 * HTTP/1.1 has eight: (*“GET”*, *“HEAD”*, *“POST”*, *“OPTIONS”*, *“PUT”*, *“DELETE”*, *“TRACE”*, *“CONNECT”*).
 

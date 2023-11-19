@@ -7,7 +7,7 @@ This document is intended to provide background on the HTTP protocol as it relat
 ### *Note:*
 There are a large number of PDF-links in this file. Those links go to PDFs stored within the *[RFC Repository](https://github.com/alexkemp9/Conteg/tree/main/RFC)* directory. Unfortunately github cannot display those PDFs (although it is supposed to be able to do so) and after a while will just show an error page. You *can* download the PDfs to your device and they will show fine in your browser, or a dedicated PDF viewer.
 
-Most PDFs were produced with *LibreOffice 4.7.7.2* under the *Devuan* OS from the official RFC text, but some came as a PDF from the official link, and I have zero idea why github cannot display any of them.
+rfc-1945 + rfc-2616 PDFs were produced with *LibreOffice 4.7.7.2* under the *Devuan* OS from the official RFC text, but all others came as a PDF from the official link, and I have zero idea why github cannot display any of them.
 
 ## *History*
 - HTTP/0.9 :: 1989 (begun by TimBL) (zero content negotiation nor cache-control)

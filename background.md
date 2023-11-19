@@ -45,8 +45,8 @@ URI | 3.2 Uniform Resource Identifiers | 15 |
 URL | 3.2.2 http URL | 16 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
 Compression | 3.5 Content Codings | 19 | 🟢 ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress"
 Headers | 4.3 General Header Fields | 24 | General-Header = "Date" \| "Pragma"
-Methods | 5.1.1 Method | 25 | Method = "GET" \| "HEAD" \| "POST"
-Headers | 5.2 Request Header Fields | 27 | 🟢 ***Content Negotiation***:<br />Request-Header = Authorization \|<br />From \|<br />If-Modified-Since \|<br />Referer \|<br />User-Agent
+Methods | 5.1.1 Method | 25 | Method = "GET" \| "HEAD" \| "POST" <br /> *GET* = *“send me this file”* <br /> *HEAD* = a pure metadata interaction (no entity-body) <br /> *POST* = opposite of *GET* (eg forum posts)
+Headers | 5.2 Request Header Fields | 27 | 🟢 ***Content Negotiation***:<br />5 fields were introduced: Request-Header = <br /> Authorization \|<br />From \|<br />If-Modified-Since \|<br />Referer \|<br />User-Agent
 Status | 6.1 Status-Line | 28 | eg first line is *“HTTP/1.0 200 ”* <br /> This allows the client to differentiate a http/0 response from a http/1 response.
 Status Codes | 6.1.1 Status Code and Reason Phrase | 28 | 15 codes were introduced: Status-Code =<br />"200"; OK<br />"201"; Created<br />"202"; Accepted<br />"204"; No Content<br />"301"; Moved Permanently<br />"302"; Moved Temporarily<br />"304"; Not Modified<br />"400"; Bad Request<br />"401"; Unauthorized<br />"403"; Forbidden<br />"404"; Not Found<br />"500"; Internal Server Error<br />"501"; Not Implemented<br />"502"; Bad Gateway<br />"503"; Service Unavailable
 Response Headers | 6.2 Response Header Fields | 30 | 🟢 ***Content Negotiation***:<br />Response-Header = Location \| Server \| WWW-Authenticate

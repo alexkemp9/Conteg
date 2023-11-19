@@ -37,7 +37,7 @@ The WWW is a network of networks. The premise, broadly, is that electronic serve
 
 The introduction of *“headers”* & *“bodies”* allows the introduction of content negotiation, even though at this early beginning it is most basic. Caching is introduced as an important feature, and this is relevant both for Clients *and* proxy-servers. The fundamental feature of this is a method for cooperation between client, server & proxies to allow substantial reduction in network bandwidth & subsequent increase in speed.
 
-Savings come with the use of *HEAD* (allows a client to *“sniff”* the server & thus perhaps not have to receive a file); use of *If-Modified-Since* & *“304 Not Modified”* & again perhaps not have to receive a file; interaction between cache, *“Pragma: no-cache”*, *“Expires”* & *“Last-Modified”* to perhaps not have to receive a file. However, those savings already mentioned are dwarfed by savings available when using *Compression*, and specifically if the entity is text.
+Savings come with the use of *HEAD* (allows a client to *“sniff”* the server & thus perhaps not have to receive a file); use of *If-Modified-Since* & *“304 Not Modified”* & again perhaps not have to receive a file; interaction between cache, *“Pragma: no-cache”*, *“Expires”* & *“Last-Modified”* to also perhaps not have to receive a file. However, those savings already mentioned are dwarfed by savings available when using *Compression*, and specifically if the entity is text.
 
 My own testing of *content-coding* (server-enabled compression) showed typical values of +70% at level 8/9 (reduction to one-third of original size), with some pages better than 80% (reduction to one-fifth). On admin-edit pages (masses of duplicated &lt;select> drop-down boxes) reductions exceed 90%. So, most effective.
 
@@ -47,8 +47,8 @@ These are the relevant new features introduced in the HTTP/1.0 spec:
 |:-----------------|:-----------------|:-----------------|:-----------------|
 URI | 3.2 Uniform Resource Identifiers | 15 | 
 URL | 3.2.2 http URL | 16 | http_URL= "http:" "//" host [ ":" port ] [ abs_path ]
-Compression | 3.5 Content Codings | 19 | 🟢 ***Content Negotiation***: <br /> content-coding = "gzip" \| "compress"
-Headers | 4.3 General Header Fields | 24 | General-Header = "Date" \| "Pragma"
+Compression | 3.5 Content Codings | 19 | 🟢 ***Content Negotiation***: <br /> content-coding = "x-gzip" \| "x-compress"
+Headers | 4.3 General Header Fields | 24 | General-Header = Date \| Pragma
 Methods | 5.1.1 Method | 25 | Method = "GET" \| "HEAD" \| "POST" <br /> *GET* = *“send me this file”* <br /> *HEAD* = a pure metadata interaction (no entity-body) <br /> *POST* = opposite of *GET* (eg forum posts)
 Headers | 5.2 Request Header Fields | 27 | 🟢 ***Content Negotiation***:<br />5 fields were introduced: Request-Header = <br /> Authorization \|<br />From \|<br />If-Modified-Since \|<br />Referer \|<br />User-Agent
 Status | 6.1 Status-Line | 28 | eg first line is *“HTTP/1.0 200 ”* <br /> This allows the client to differentiate a http/0 response from a http/1 response.

@@ -47,7 +47,7 @@ Compression | 3.5 Content Codings | 19 | 🟢 ***Content Negotiation***: <br /> 
 Headers | 4.3 General Header Fields | 24 | General-Header = "Date" \| "Pragma"
 Methods | 5.1.1 Method | 25 | Method = "GET" \| "HEAD" \| "POST"
 Headers | 5.2 Request Header Fields | 27 | 🟢 ***Content Negotiation***:<br />Request-Header = Authorization \|<br />From \|<br />If-Modified-Since \|<br />Referer \|<br />User-Agent
-Status | 6.1 Status-Line | 28 | eg first line is *“HTTP/1.0 200 ”*; This allows the client to differentiate a http/0 response from a http/1 response.
+Status | 6.1 Status-Line | 28 | eg first line is *“HTTP/1.0 200 ”* <br /> This allows the client to differentiate a http/0 response from a http/1 response.
 Status Codes | 6.1.1 Status Code and Reason Phrase | 28 | 15 codes were introduced: Status-Code =<br />"200"; OK<br />"201"; Created<br />"202"; Accepted<br />"204"; No Content<br />"301"; Moved Permanently<br />"302"; Moved Temporarily<br />"304"; Not Modified<br />"400"; Bad Request<br />"401"; Unauthorized<br />"403"; Forbidden<br />"404"; Not Found<br />"500"; Internal Server Error<br />"501"; Not Implemented<br />"502"; Bad Gateway<br />"503"; Service Unavailable
 Response Headers | 6.2 Response Header Fields | 30 | 🟢 ***Content Negotiation***:<br />Response-Header = Location \| Server \| WWW-Authenticate
 Entity Headers | 7.1 Entity Header Fields | 31 | 7 types of Entity Header were introduced: Entity-Header =<br />Allow \|<br />Content-Encoding \|<br />Content-Length \|<br />Content-Type \|<br />Expires \|<br />Last-Modified \|<br />extension-header

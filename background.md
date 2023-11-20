@@ -65,6 +65,10 @@ Referer (sic) | 10.13 Referer | 45 |
 ### *HTTP/1.1:*
 ***HTTP/1.1*** was a formal specification within [RFC-2616 (pdf)](https://github.com/alexkemp9/Conteg/blob/main/RFC/rfc-2616_HTTP-1.1.pdf). As a development from HTTP/1.0 it adds consideration of the effects of hierarchical proxies, caching, the need for persistent connections, and virtual hosts.
 
+Certain new 1.1 features were presaged within section D of the 1.0 Appendix. These include:     
+- Request Methods: PUT, DELETE, LINK (not used), UNLINK (not used)
+- Header Field Definitions: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Language, Link (not used), MIME-Version, Retry-After, Title (sometimes used)
+
 These are the relevant 🟡 new features introduced in the HTTP/1.1 spec (entire section unless otherwise marked):
 
 | Name             | RFC-2616         | PDF Page         | Info             |
@@ -77,3 +81,4 @@ Compression | 3.5 Content Codings | 25 | 🟢 ***Content Negotiation***: <br /> 
 🟡 Ranges | 3.12 Range Units | 32 | 🟢 ***Content Negotiation***: <br /> Range-unit = bytes-unit | other-range-unit<br />used within Range, Content-Range
 Headers | 4.5 General Header Fields | 36 | 🟡 All except ‘Date’ &amp; ‘Pragma’ are 1.1 additions to this spec; General-Header =<br />Cache-Control \|<br />Connection \|<br />Date \|<br />Pragma \|<br />Trailer \|<br />Transfer-Encoding \|<br />Upgrade \|<br />Via \|<br />Warning
 Methods | 5.1.1 Method | 37 | 🟡 All except ‘GET’, ‘HEAD’ &amp; ‘POST’ are 1.1 additions to this spec; Method =<br />“OPTIONS” \|<br />“GET” \|<br />“HEAD” \|<br />“POST” \|<br />“PUT” \|<br />“DELETE” \|<br />“TRACE” \|<br />“CONNECT”
+Headers | 5.3 Request Header Fields | 40 | 🟢 ***Content Negotiation***:<br /> 🟡 Expanded from 5 fields (with ‘*’) to 19; Request-Header = <br />Accept \|<br />Accept-Charset \|<br />Accept-Encoding \|<br />Accept-Language \|<br />*Authorization \|<br />Expect \|<br />*From \|<br />Host \|<br />If-Match \|<br />*If-Modified-Since \|<br />If-None-Match \|<br />If-Range \|<br />If-Unmodified-Since \|<br />Max-Forwards \|<br />Proxy-Authorization \|<br />Range \|<br />*Referer \|<br />TE \|<br />*User-Agent

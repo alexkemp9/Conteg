@@ -8,8 +8,13 @@ This document is intended to provide background on the HTTP protocol as it relat
 1. There are a large number of PDF-links in this file. Those links go to PDFs stored within the *[RFC Repository](https://github.com/alexkemp9/Conteg/tree/main/RFC)* directory. Unfortunately github cannot display those PDFs (although it is supposed to be able to do so) and after a while will just show an error page. You *can* download the PDfs to your device and they will show fine in your browser, or a dedicated PDF viewer.     
        
 rfc-1945 + rfc-2616 PDFs were produced with *LibreOffice 4.7.7.2* (LO) under the *Devuan* OS from the official RFC text, but all others came as a PDF from the official link, and I have zero idea why github cannot display any of them.
-2. In addition to Note(1) there is some bug within *LibreOffice* (LO) which prevents many intra-document links from working in the PDF (all links are fully effective within LO, but some not within an exported PDF).
-3. This document is a work-in-progress (*very* slow to produce).  
+2. In addition to Note(1) there is some bug within *LibreOffice* (LO) which prevents many intra-document links from working in the PDF (all links are fully effective within LO, but some not within an exported PDF)†.
+3. This document is a work-in-progress (*very* slow to produce).
+
+#### *Update Dec 1:*
+† The LO bugs are damn annoying. I've made a score or so documents which have gone `LO .odt =＞ exported as PDF` apparently without any problems. One is concurrent with the RFC docs; it was started on May 25 2023, is continuously updated & is currently 66 Pages. It uses the identical structure & styles as the RFC docs, which is 5 *Heading* styles (*“Heading 1”* to *“Heading 5”*); those headings are used to establish the *Table of Contents* and also other internal page-links. The May 25 doc has never suffered problems with those links. Links within the RFC docs are fine for most links to *“Heading 1”* or *“Heading 2”* sections, but almost every *“Heading 3, 4 or 5”* link fails to connect.
+
+This sort of bug is above my pay-grade. It seemed to me that the simplest fix would be to use a *Bookmark* as the target rather than *Heading*, and a quick test worked fine. I therefore added a bookmark for every single internal link. As best as I can tell I have both switched every link-target to a bookmark in rfc-1945 (http-1.0) and they are all now effective. The new file is uploaded, and rfc-2616 (http-1.1) will follow soonish.
 
 ## *History*
 - HTTP/0.9 :: 1989 (begun by TimBL) (zero content negotiation nor cache-control)

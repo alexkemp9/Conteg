@@ -4,7 +4,7 @@ A Content-Negotiation + Cache-Control Class for PHP-produced HTTP web-output
 ## *HTTP Background*
 This document is intended to provide background on the HTTP protocol as it relates to the use of Conteg. For that reason it emphasises the introduction of Content Negotiation & Caching within the different HTTP versions.
 
-### *Note:*
+### *Notes:*
 1. There are a large number of PDF-links in this file. Those links go to PDFs stored within the *[RFC Repository](https://github.com/alexkemp9/Conteg/tree/main/RFC)* directory. Unfortunately github cannot display those PDFs (although it is supposed to be able to do so) and after a while will just show an error page. You *can* download the PDfs to your device and they will show fine in your browser, or a dedicated PDF viewer.     
        
 rfc-1945 + rfc-2616 PDFs were produced with *LibreOffice 4.7.7.2* (LO) under the *Devuan* OS from the official RFC text, but all others came as a PDF from the official link, and I have zero idea why github cannot display any of them.
@@ -12,9 +12,15 @@ rfc-1945 + rfc-2616 PDFs were produced with *LibreOffice 4.7.7.2* (LO) under the
 3. This document is a work-in-progress (*very* slow to produce).
 
 #### *Update Dec 1:*
-† The LO bugs are damn annoying. I've made a score or so documents which have gone `LO .odt =＞ exported as PDF` apparently without any problems. One is concurrent with the RFC docs; it was started on May 25 2023, is continuously updated & is currently 66 Pages. It uses the identical structure & styles as the RFC docs, which is 5 *Heading* styles (*“Heading 1”* to *“Heading 5”*); those headings are used to establish the *Table of Contents* and also other internal page-links. The May 25 doc has never suffered problems with those links. Links within the RFC docs are fine for most links to *“Heading 1”* or *“Heading 2”* sections, but almost every *“Heading 3, 4 or 5”* link fails to connect.
+† The LO bugs are damn annoying. I finally got them fixed today, sort-of.
 
-This sort of bug is above my pay-grade. It seemed to me that the simplest fix would be to use a *Bookmark* as the target rather than *Heading*, and a quick test worked fine. I therefore added a bookmark for every single internal link. As best as I can tell I have both switched every link-target to a bookmark in rfc-1945 (http-1.0) and they are all now effective. The new file is uploaded, and rfc-2616 (http-1.1) will follow soonish.
+I've made scores of documents which were *“`LO .odt =＞ exported as PDF`”*, full of internal links, and without any problems. Until I produced these RFC docs, and discovered late in the day that almost none of the manual intra-doc links within them functioned.
+
+One of these earlier docs was started on May 25 2023, and has been worked on concurrently with the RFC docs; it has been continuously updated & is currently 66 Pages. It uses the identical structure & styles as the RFC docs. The May 25 doc has never shown problems with those links, even though both sets (May 25 + RFC docs) are produced on the same desktop computer.
+
+The intra-doc linking method within all my *LibreOffice* documents uses *Heading* styles as the target for internal document links; that statement is true both for the auto-produced *Table of Contents* and manual links accessed via *`Ctrl+K`*. There are up to 6 *Heading* styles (labelled *“Heading 1”* to *“Heading 6”*). *Heading 1* is used just once for the page Title, and *Heading 6* is almost never used. I've never discovered any problems with any links within any other document than the 2 RFC docs. The *Table of Contents* is fine within them, but most other internal links fail.
+
+This sort of bug is above my pay-grade. It seemed to me that the simplest fix would be to use a *Bookmark* as a target rather than *Heading*, and a quick test worked fine. I therefore added a bookmark for every single internal link. As best as I can tell I have both switched every link-target to a bookmark in rfc-1945 (http-1.0) and they are all now effective. The new file is uploaded, and rfc-2616 (http-1.1) will follow soonish.
 
 ## *History*
 - HTTP/0.9 :: 1989 (begun by TimBL) (zero content negotiation nor cache-control)
